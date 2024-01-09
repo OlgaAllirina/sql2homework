@@ -2,12 +2,10 @@
 --Написать SELECT-запросы, которые выведут информацию согласно инструкциям ниже.
 
 --Количество исполнителей в каждом жанре.
-select genre_name, count(performer_name)
+select mg.genre_name, count(pg.performer)
 from musical_genre mg 
 left join performer_genre pg on mg.genre_id = pg.genre_id 
-left join musician_performer mp on mp.performer_id = mg.genre_id 
-group by genre_name
-order by count(performer_name) desc;
+group by mg.genre_name;
 
 --Количество треков, вошедших в альбомы 2019–2020 годов.
 select track_name, year_of_issue
