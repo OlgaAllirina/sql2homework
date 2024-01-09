@@ -21,11 +21,12 @@ group by album_name
 order by avg(duration);
 
 --Все исполнители, которые не выпустили альбомы в 2020 году.
-select performer_name, year_of_issue
-from musician_performer mp 
-left join album_performer ap on mp.performer_id = ap.performer 
-left join album a on ap.album  = a.album_id
-where year_of_issue != '2020';
+SELECT mp.performer_name from musician_performer mp  
+except
+select mp.performer_name from musician_performer mp 
+left join album_performer ap on mp.performer_id = ap.performer
+left join album a on ap.album = a.album_id
+where year_of_issue = '2020';
 
 --Названия сборников, в которых присутствует конкретный исполнитель (выберите его сами).
 select performer_name, collection_name
