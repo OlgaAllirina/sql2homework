@@ -11,7 +11,7 @@ where duration >= '3:30:00';
 --3 task
 select collection_name
 from collection 
-where collection_release_year >= '2018' and collection_release_year <= '2020';
+where collection_release_year between '2018' and  '2020';
 
 --4 task
 select performer_name
